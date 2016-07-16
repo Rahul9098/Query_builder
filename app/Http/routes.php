@@ -24,8 +24,10 @@ Route::get('/home', 'HomeController@index');
 Route::post('/home/show', 'HomeController@show');
 
 
-//Route::get('/home/show2', 'HomeController@show2');
-//Route::get('/home/show1', 'HomeController@show1');
+Route::post('/home/show2', 'HomeController@show2');
+Route::post('/home/show1', 'HomeController@show1');
+Route::post('/home/get-result', 'HomeController@get_result');
+Route::post('/home/get-action', 'HomeController@get_action');
 
 //Route::get('/home/show', 'HomeController@query');
 //Route::get('/home/show', 'HomeController@select');
