@@ -19,14 +19,14 @@ function action(action) {
                 //console.log(i + ": " + data[i]);
             }
             $.each(data[0], function (index, value) {
-                alert(index);
-                alert(value);
+                // alert(index);
+                // alert(value);
                 html1+= '<td style="background-color: #B0BEC5;font-style:normal">' + index + '</td>';
                 html2 += '<td>' +value + '</td>';
             });
             for (key in data) {
                 var temp=data[key];
-                alert(temp.id)
+                // alert(temp.id)
 
             }
             $('#columns').html(html1);
