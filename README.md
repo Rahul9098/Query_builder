@@ -50,3 +50,84 @@ $(document ).ready(function() {
          ajax1();
      });
 ```
+
+Now after that we select any table from the select menu then fetch all the fields of selected table through the Ajax which show in below.
+
+![alt tag](https://github.com/Rahul9098/Query_builder/blob/master/public/img/Capture2.PNG)
+
+
+```javascript
+var ajax1= function() {
+     var table = $('.table_change').val();
+        $.ajax({
+            type: "post",
+            url: url_table_show2,
+            dataType: "json",
+            data: {
+                "table": table,
+                 "_token":token,
+            },
+            success: function (data) {
+                //alert("success");
+                console.log(data);
+                var html = "";
+                    for (key in data) {
+                        var temp = data[key];
+                             html += '<option>' + temp + '</option>';
+                           }
+                $('#field').html(html);
+                }
+        });
+}
+
+```
+
+Finally filled all input boxes we click on the go button then show the query string in red color according to you build up, after that you click on the button of Get Result then fire the query and  you got the Dynamically data with table’s fields in tabular format through the Ajax.
+
+```javascript
+$(document ).ready(function() {
+$('.get_result').click(function(){
+        $.ajax({
+            type: 'post',
+            url: url_get_result,
+            dataType: 'json',
+            data: {
+                '_token': $('input[name=_token]').val(),
+                'star': $('input[name=star]').val(),
+                'table': $('select[name=table]').val(),
+                'where': $('select[name=where]').val(),
+                'operator': $('select[name=operator]').val(),
+                'condition': $('input[name=condition]').val(),
+            },
+            success: function (data) {
+                var html='';
+                var html1='';
+                var html2='';
+                var temp1='';
+                var temp2='';
+                for(key in data['select']){
+                    var temp=data['select'][key];
+                    html += '<tr><td id="'+ temp.id +'">' + temp.query + '</td>';
+                    html += '<td>' + temp.created_at + '</td>';
+                    html += '<td><button type="button" class="btn btn-info" id="act"  onclick="action('+ temp.id +');" >Action</button></td> </tr>';
+                }
+                for(key in data['columns']) {
+                    var temp1 = data['columns'][key];
+                    html1 += '<td style="background-color: #B0BEC5;font-style:normal">' + temp1 + '</td>';
+                    //console.log(temp1);
+                for(key in data['get_query']) {
+                    var fields = data['columns'];
+                    var temp2 = data['get_query'][key];
+                    html2 += '<td>' + data['get_query'][key][temp1] + '</td>';
+                    }
+                }
+                $('.select').html(html);
+                $('#columns').html(html1);
+                $('.get_show').html(html2);
+            }
+        });
+    })
+});
+
+```
+![alt tag](https://github.com/Rahul9098/Query_builder/blob/master/public/img/Capture5.PNG)
