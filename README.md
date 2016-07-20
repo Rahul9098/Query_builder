@@ -168,5 +168,3 @@ function action(action) {
 ```
 
 ![alt tag](https://github.com/Rahul9098/Query_builder/blob/master/public/img/Capture6.PNG)
-
-[![Build Status](https://travis-ci.org/FoolCode/SphinxQL-Query-Builder.png)](https://github.com/Rahul9098/Query_builder/edit/master/README.md)
