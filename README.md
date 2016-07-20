@@ -18,6 +18,7 @@ There are kindly two part in this project are follow:-
 2. Previous Queries
 
 
+
 **<ins>Query Builder:</ins>**
 
 Query Builder is the first procedure of this project in which we used text boxes and select menu to build a perfect query.
@@ -167,3 +168,5 @@ function action(action) {
 ```
 
 ![alt tag](https://github.com/Rahul9098/Query_builder/blob/master/public/img/Capture6.PNG)
+
+[![Build Status](https://travis-ci.org/FoolCode/SphinxQL-Query-Builder.png)](https://github.com/Rahul9098/Query_builder/edit/master/README.md)
